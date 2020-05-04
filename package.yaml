@@ -1,0 +1,45 @@
+name:                remote-house
+version:             0.1.0.0
+github:              "lotz84/remote-house"
+license:             BSD3
+copyright:           "2020 Tatsuya Hirose"
+
+dependencies:
+- base >= 4.7 && < 5
+
+library:
+  source-dirs: src
+  dependencies:
+  - aeson
+  - wai-app-static
+  - warp
+  - servant-server
+  - servant-websockets
+  - text
+  - transformers
+  - unordered-containers
+  - uuid
+  - websockets
+
+executables:
+  remote-house-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - warp
+    - remote-house
+
+tests:
+  remote-house-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - remote-house

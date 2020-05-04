@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Remote House</title>
+    <link rel="stylesheet" href="https://unpkg.com/mvp.css@1.6.1/mvp.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" />
+    <style> :root { --width-content: 1024px; } </style>
+  </head>
+  <body>
+    <main id="app">
+      <h1>Remote House</h1>
+      <p>
+        <strong>参加方法</strong>
+        <ol>
+          <li>名前を入力する</li>
+          <li>プロフィール画像のURLを設定する</li>
+          <li>空いている椅子をクリックする</li>
+        </ol>
+      </p>
+      <form>
+        <label>名前</label>
+        <input type="text" @change="updateUserInfo" v-model="userName" />
+        <label>プロフィール画像URL（<a @click="genRandomUserImage">Random</a>）</label>
+        <input type="url" @change="updateUserInfo" v-model="userImage" style="width: 80%" />
+        <figure>
+          <img :src="userImage" style="width: 32px"/>
+        </figure>
+      </form>
+      <p>
+        <strong>使い方</strong>
+        <ol>
+          <li>相手をクリックすると通知を送れます</li>
+          <li>テーブルに座るとテーブルメッセージの確認と修正ができます</li>
+        </ol>
+      </p>
+      <p>
+        <small>テーブルメッセージ</small>
+        <textarea v-model="tableMessage" @input="updateTableMessage" rows=5 style="width: 100%"></textarea>
+      </p>
+      <canvas id="house-map" @click="clickCanvas($event)" width="512" height="384" style="width: 100%; height: 768px"></canvas>
+    </main>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/1.0.12/push.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js"></script>
+  <script type="text/javascript" src="/main.js"></script>
+  </body>
+</html>
