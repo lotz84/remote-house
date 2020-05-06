@@ -36,7 +36,13 @@ const getSeat = function(x, y) {
   return result;
 }
 
+const escapeHtml = function (rawString) {
+  return $("<span>").text(rawString).html();
+}
 
+const unescapeHtml = function (escapedString) {
+  return $("<span>").html(escapedString).text();
+}
 
 const app = new Vue({
   el: '#app',
@@ -67,7 +73,8 @@ const app = new Vue({
     },
     updateUserInfo: function() {
       if(this.userName.length == 0 || this.userImage.length == 0) return;
-      ws.send(makeUpdateUserInfo(this.userName, this.userImage));
+      const htmlEscapedUserName = escapeHtml(this.userName);
+      ws.send(makeUpdateUserInfo(htmlEscapedUserName, this.userImage));
     },
     clickCanvas: function(e) {
       const x = Math.floor(e.offsetX / 32);
@@ -147,7 +154,7 @@ const app = new Vue({
         const y = s * seatMap[table][seat][0];
         const x = s * seatMap[table][seat][1];
 
-        $this.ctx.fillText(userName, x + s/2, y - s/3);
+        $this.ctx.fillText(unescapeHtml(userName), x + s/2, y - s/3);
         $this.getUserImageWithCache(userImage, function(imageObj) {
           $this.ctx.drawImage(imageObj, x, y, s, s);
         });
