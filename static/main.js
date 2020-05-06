@@ -1,8 +1,9 @@
+toastr.options.escapeHtml = true; // to prevent XSS vulnerabilities
+
 if(!Push.Permission.has()) {
   alert("タブが表示されていない時でも友人からの通知を受け取るために通知を許可してください");
   Push.Permission.request();
 }
-
 
 
 const ws_uri = (function(){
