@@ -8,7 +8,7 @@ dependencies:
 - base >= 4.7 && < 5
 
 library:
-  source-dirs: src
+  source-dirs: server/src
   dependencies:
   - aeson
   - wai-app-static
@@ -24,7 +24,7 @@ library:
 executables:
   remote-house-exe:
     main:                Main.hs
-    source-dirs:         app
+    source-dirs:         server/app
     ghc-options:
     - -threaded
     - -rtsopts
@@ -36,7 +36,7 @@ executables:
 tests:
   remote-house-test:
     main:                Spec.hs
-    source-dirs:         test
+    source-dirs:         server/test
     ghc-options:
     - -threaded
     - -rtsopts

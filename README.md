@@ -18,11 +18,12 @@ $ git clone git@github.com:lotz84/remote-house.git
 $ cd remote-house
 ```
 
-### stack
+### stack & spago
 
-事前にHaskellのビルドツールである[stack](https://docs.haskellstack.org/en/stable/README/)を使える状態にしておく
+事前にHaskellのビルドツールである[stack](https://docs.haskellstack.org/en/stable/README/)とPureScriptのビルドツールである[spago](https://github.com/purescript/spago)使える状態にしておく
 
 ```shell
+$ spago bundle-app --main Main --to frontend/static/main-ps.js
 $ stack run
 ```
 
@@ -41,7 +42,7 @@ $ docker run -p 8080:8080 remote-house
 
 このアプリはまだまだ開発途中なのでIssueやPull Requestは大歓迎です。
 
-バックエンドにはHaskell - Servant、フロントエンドにはJavaScript - Vue.jsを利用しています。フロントエンドに関してはElmやPureScriptのような関数型のAltJSで置き換えたい気持ちがあります。
+バックエンドにはHaskell - Servant、フロントエンドにはJavaScript - Vue.jsとPureScriptを利用しています。
 
 マップの画像は「ぴぽや <https://pipoya.net/>」で配布されている素材を利用しています。RPG画像は自由に組み合わせれるので開発がしやすいですが、ゲームの雰囲気になってしまうのでバーチャルオフィス用途も想定した画像を用意したいと考えています。
 

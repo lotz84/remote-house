@@ -1,2 +1,20 @@
-.stack-work/
 *~
+
+# Generated JavaScript file from PureScript
+**/*-ps.js
+
+# for Haskell
+.stack-work/
+
+### https://raw.github.com/github/gitignore/7293c14345c205c679722364a01b88d331e862ff/PureScript.gitignore
+
+# Dependencies
+.psci_modules
+.spago
+bower_components
+node_modules
+
+# Generated files
+.psci
+output
+

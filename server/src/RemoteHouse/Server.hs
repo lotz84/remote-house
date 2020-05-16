@@ -20,7 +20,7 @@ server :: RemoteHouseStorage -> Server RemoteHouse
 server storage = wsServer storage :<|> staticServer
   where
   staticServer =
-    let settings = (defaultWebAppSettings "static") { ssIndices = [unsafeToPiece "index.html"] }
+    let settings = (defaultWebAppSettings "frontend/static") { ssIndices = [unsafeToPiece "index.html"] }
      in serveDirectoryWith settings
 
 app :: RemoteHouseStorage -> Application

@@ -1,10 +1,10 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.31.2.
+-- This file has been generated from package.yaml by hpack version 0.33.0.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 257e9a3f83b7e815c1909adc16819dd0162ae071d3d6d805557422d87373da89
+-- hash: 13a9341b8ad41fc3ef4b7c03561f211e10ccc6f2a8d0f1315b2b935a4e754afc
 
 name:           remote-house
 version:        0.1.0.0
@@ -28,7 +28,7 @@ library
   other-modules:
       Paths_remote_house
   hs-source-dirs:
-      src
+      server/src
   build-depends:
       aeson
     , base >=4.7 && <5
@@ -48,7 +48,7 @@ executable remote-house-exe
   other-modules:
       Paths_remote_house
   hs-source-dirs:
-      app
+      server/app
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
@@ -62,7 +62,7 @@ test-suite remote-house-test
   other-modules:
       Paths_remote_house
   hs-source-dirs:
-      test
+      server/test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       base >=4.7 && <5
